@@ -26,8 +26,42 @@ struct Home: View {
                 .padding(.vertical)
                 
                 CustomSegmentedBar()
+                    .padding(.top,5)
+                
+                // MARK: Game View
+                
             }
             .padding()
+        }
+        .overlay(alignment: .bottom) {
+            // MARK: Adicionando botão para adicionar os Games
+            Button{
+                
+            } label: {
+                Label {
+                    Text("Adicionar game")
+                        .font(.callout)
+                        .fontWeight(.semibold)
+                } icon: {
+                    Image(systemName: "plus.app.fill")
+                }
+                .foregroundColor(.white)
+                .padding(.vertical, 12)
+                .padding(.horizontal)
+                .background(.black, in: Capsule())
+            }
+            // MARK: Linear Gradient BG
+            .padding(.top, 10)
+            .frame(maxWidth: .infinity)
+            .background{
+                LinearGradient(colors: [
+                    .white.opacity(0.05),
+                    .white.opacity(0.4),
+                    .white.opacity(0.7),
+                    .white
+                ], startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
+            }
         }
     }
     
